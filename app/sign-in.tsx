@@ -55,8 +55,8 @@ export default function SignIn() {
   
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>
-        Sign Inxr
+      <Text  className='text-red-400'>
+        Sign In
       </Text>
       <Text>Email</Text>
       <TextInput placeholder='Enter Your Email' value={email} onChangeText={setEmail}></TextInput>
