@@ -10,13 +10,13 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2BB8204B6F6D4BAAB694BB9A /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B0BA79CAC48609934030A /* noop-file.swift */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		81932551F2D04F069B1F5774 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501042940A47451F81ECE588 /* noop-file.swift */; };
+		639D3C7F5D3D436D931FA34B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44EE34E2FE6C4EA892454905 /* GoogleService-Info.plist */; };
+		9EA084470B10B189296EDBB4 /* Pods_fitnessTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A75CC26F0B528378327D4A0 /* Pods_fitnessTracker.framework */; };
+		9EE6E2E979AFF67ECADF8FBB /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 49B80CD2E406109EE1FF766F /* PrivacyInfo.xcprivacy */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		D3F8272B7E934465A75453CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A371AC692D334953A478C4B6 /* GoogleService-Info.plist */; };
-		E869952D35D8F1EABDE2804B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 25DB59ED646C150F513B377B /* PrivacyInfo.xcprivacy */; };
-		EEC0F2327CC1601D43F7A8E0 /* Pods_fitnessTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6C03898D9BEFD11C821C20 /* Pods_fitnessTracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,15 +26,15 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = fitnessTracker/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = fitnessTracker/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = fitnessTracker/main.m; sourceTree = "<group>"; };
-		25DB59ED646C150F513B377B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = fitnessTracker/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		4C6C03898D9BEFD11C821C20 /* Pods_fitnessTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitnessTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		501042940A47451F81ECE588 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "fitnessTracker/noop-file.swift"; sourceTree = "<group>"; };
+		44EE34E2FE6C4EA892454905 /* GoogleService-Info.plist */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "fitnessTracker/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49B80CD2E406109EE1FF766F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = fitnessTracker/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		4A75CC26F0B528378327D4A0 /* Pods_fitnessTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitnessTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2E3173556A471DD304B334 /* Pods-fitnessTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnessTracker.debug.xcconfig"; path = "Target Support Files/Pods-fitnessTracker/Pods-fitnessTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-fitnessTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnessTracker.release.xcconfig"; path = "Target Support Files/Pods-fitnessTracker/Pods-fitnessTracker.release.xcconfig"; sourceTree = "<group>"; };
-		97DF42100247445C9C483E07 /* fitnessTracker-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "fitnessTracker-Bridging-Header.h"; path = "fitnessTracker/fitnessTracker-Bridging-Header.h"; sourceTree = "<group>"; };
-		A371AC692D334953A478C4B6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "fitnessTracker/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A01CBBE5290349A195185A36 /* fitnessTracker-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "fitnessTracker-Bridging-Header.h"; path = "fitnessTracker/fitnessTracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = fitnessTracker/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
+		D31B0BA79CAC48609934030A /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "fitnessTracker/noop-file.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-fitnessTracker/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -44,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEC0F2327CC1601D43F7A8E0 /* Pods_fitnessTracker.framework in Frameworks */,
+				9EA084470B10B189296EDBB4 /* Pods_fitnessTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,10 +61,10 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				A371AC692D334953A478C4B6 /* GoogleService-Info.plist */,
-				501042940A47451F81ECE588 /* noop-file.swift */,
-				97DF42100247445C9C483E07 /* fitnessTracker-Bridging-Header.h */,
-				25DB59ED646C150F513B377B /* PrivacyInfo.xcprivacy */,
+				44EE34E2FE6C4EA892454905 /* GoogleService-Info.plist */,
+				D31B0BA79CAC48609934030A /* noop-file.swift */,
+				A01CBBE5290349A195185A36 /* fitnessTracker-Bridging-Header.h */,
+				49B80CD2E406109EE1FF766F /* PrivacyInfo.xcprivacy */,
 			);
 			name = fitnessTracker;
 			sourceTree = "<group>";
@@ -73,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				4C6C03898D9BEFD11C821C20 /* Pods_fitnessTracker.framework */,
+				4A75CC26F0B528378327D4A0 /* Pods_fitnessTracker.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,14 +150,14 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "fitnessTracker" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				ABFBF8DC710AC293EA5D977F /* [Expo] Configure project */,
+				19E119642AF4EB66AE36AD6A /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				70A24F448B9967BCA7E9FEC0 /* [CP] Embed Pods Frameworks */,
-				C9D8FA2085A00D68536CA6BE /* [CP-User] [RNFB] Core Configuration */,
+				0A2AC5D92EB401E6A983A7C6 /* [CP] Embed Pods Frameworks */,
+				885BC1752CDCF5CABE55B182 /* [CP-User] [RNFB] Core Configuration */,
 			);
 			buildRules = (
 			);
@@ -207,8 +207,8 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				D3F8272B7E934465A75453CC /* GoogleService-Info.plist in Resources */,
-				E869952D35D8F1EABDE2804B /* PrivacyInfo.xcprivacy in Resources */,
+				639D3C7F5D3D436D931FA34B /* GoogleService-Info.plist in Resources */,
+				9EE6E2E979AFF67ECADF8FBB /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +252,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		70A24F448B9967BCA7E9FEC0 /* [CP] Embed Pods Frameworks */ = {
+		0A2AC5D92EB401E6A983A7C6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,6 +269,25 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fitnessTracker/Pods-fitnessTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		19E119642AF4EB66AE36AD6A /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-fitnessTracker/expo-configure-project.sh\"\n";
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -310,26 +329,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fitnessTracker/Pods-fitnessTracker-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ABFBF8DC710AC293EA5D977F /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-fitnessTracker/expo-configure-project.sh\"\n";
-		};
-		C9D8FA2085A00D68536CA6BE /* [CP-User] [RNFB] Core Configuration */ = {
+		885BC1752CDCF5CABE55B182 /* [CP-User] [RNFB] Core Configuration */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -352,7 +352,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */,
-				81932551F2D04F069B1F5774 /* noop-file.swift in Sources */,
+				2BB8204B6F6D4BAAB694BB9A /* noop-file.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
