@@ -31,6 +31,8 @@ export default function SignIn() {
       }catch(e){
         e instanceof Error? Alert.alert(`${e}`) : Alert.alert('unknown error')
       }
+    }else{
+      Alert.alert("Please Enter Credentials")
     }
   }
 
@@ -50,6 +52,8 @@ export default function SignIn() {
       }catch(e){
         e instanceof Error? Alert.alert(`${e}`) : Alert.alert('unknown error')
       }
+    }else{
+      Alert.alert("Please Enter Credentials")
     }
   }
   
