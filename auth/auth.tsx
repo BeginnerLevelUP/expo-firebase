@@ -4,7 +4,7 @@ import { FirebaseAuthTypes } from '@react-native-firebase/auth';
 const AuthContext = createContext<{
   signIn:  (user:any) => void;
   signOut: () => void;
-  session?: string | null;
+  session?: string | null|any;
   isLoading: boolean;
 }>({
   signIn:  (user:any) => null,
