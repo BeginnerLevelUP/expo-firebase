@@ -1,6 +1,6 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { View,Text,ScrollView,SafeAreaView } from 'react-native';
-import { Button, Menu, Divider, PaperProvider,Searchbar,Avatar, Card,} from 'react-native-paper';
+import { Button, Menu, Divider, Searchbar,Avatar, Card,} from 'react-native-paper';
 import React,{useState} from "react"
 import { AntDesign } from '@expo/vector-icons';
 export default function TabTwoScreen() {
@@ -10,7 +10,7 @@ export default function TabTwoScreen() {
   const openMenu = () => setVisible(true);
   const closeMenu = () => setVisible(false);
   return (
-  <PaperProvider>
+
         <SafeAreaView className='flex-1 justify-center items-center h-screen w-screen'> 
           {/* Nav */}
           <View className='flex flex-col justify-between w-full px-8'>
@@ -39,8 +39,8 @@ export default function TabTwoScreen() {
           {/* Body */}
           <ScrollView>
               {cards.map((item, index) => (
-                  <View className='my-4'>
-                      <Card key={index}>
+                  <View className='my-4' key={index}>
+                      <Card>
                         <Card.Title title="Item" subtitle="Item Subtitle" />
                         <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
                         <Card.Actions>
@@ -54,7 +54,6 @@ export default function TabTwoScreen() {
           </ScrollView>
 
       </SafeAreaView> 
-  </PaperProvider>
 
   );
 }
