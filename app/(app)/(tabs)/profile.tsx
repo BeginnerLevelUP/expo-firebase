@@ -1,10 +1,11 @@
 import { View,Text,ScrollView,SafeAreaView } from 'react-native';
 import React,{useState} from "react"
 import Svg, { Path,Ellipse } from 'react-native-svg';
-import { Button,TextInput } from 'react-native-paper';
+import { Button,TextInput,PaperProvider } from 'react-native-paper';
 export default function ProfilePage(){
     const [text, setText] = useState("");
     return(
+    <PaperProvider>
         <SafeAreaView className='flex-1 justify-start items-center h-screen w-screen'> 
         {/* Profile Icon */}
             <View className='flex flex-row justify-center items-center px-12 py-4'>
@@ -46,5 +47,6 @@ export default function ProfilePage(){
                 </View>
             </View>
         </SafeAreaView>
+    </PaperProvider>
     )
 }
