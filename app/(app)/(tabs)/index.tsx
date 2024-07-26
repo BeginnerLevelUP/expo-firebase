@@ -24,7 +24,7 @@ export default function HomeScreen() {
         </Svg>
       </View>
 
-      <View className='mx-auto  z-10 relative bottom-40'>
+      <View className='mx-auto  z-10 relative bottom-[10rem]'>
         {/* Burnt */}
           <Icon
             source="fire"
@@ -66,6 +66,7 @@ export default function HomeScreen() {
       <View className='w-full h-[200px] flex flex-row justify-between px-4 items-center '>
         
       </View>
+
     </View>
     </ScrollView>
 

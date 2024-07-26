@@ -9,7 +9,7 @@ export default function ProfilePage(){
         <SafeAreaView className='flex-1 justify-start items-center h-screen w-screen'> 
         {/* Profile Icon */}
             <View className='flex flex-row justify-center items-center px-12 py-4'>
-                <View className='z-10 relative left-32'>
+                <View className='z-10 relative left-[8rem]'>
                     <Icon
                         source="account"
                         size={90}
