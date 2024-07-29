@@ -4,9 +4,6 @@ import Svg, { Path } from 'react-native-svg';
 import auth from "@react-native-firebase/auth"
 import { Icon } from 'react-native-paper';
 
-//Figma files
-
-
 export default function HomeScreen() {
   const { signOut,session } = useSession();
   const user=JSON.parse(session)

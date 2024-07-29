@@ -54,6 +54,3 @@ export default interface Meal {
   dateModified: string | null;
 }
 
-export interface MealData {
-  meals: Meal[];
-}
