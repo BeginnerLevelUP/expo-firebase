@@ -1,13 +1,5 @@
 const baseUrl = `https://www.themealdb.com/api/json/v1/1/`;
 
-// Search Meal
-export const fetchMealBySearch = async () => {
-    try {
-
-    } catch (e) {
-        console.log(`Error Searching for Meal: ${e instanceof Error ? e.message : 'Unknown Error'}`)
-    }
-}
 
 // Add Meal
 export const addMealToFavorites = async () => {
@@ -59,32 +51,6 @@ export const fetchAllMeals = async () => {
         return response?.meals
     } catch (e) {
         console.log(`Error Fetching All Meals: ${e instanceof Error ? e.message : 'Unknown Error'}`)
-    }
-}
-
-// Fetch Meal From Id
-export const fetchMealById = async (id:string) => {
-    const allMealUrl = `${baseUrl}lookup.php?i=${id}`
-    try {
-        const request=await fetch(allMealUrl,{
-            method:"GET",
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        })
-        const response=await request.json()
-        return response?.meals[0]
-    } catch (e) {
-        console.log(`Error Fetching  Meal: ${e instanceof Error ? e.message : 'Unknown Error'}`)
-    }
-}
-
-// Filter Meals
-export const filterMeals = async () => {
-    try {
-        // Code to filter meals goes here
-    } catch (e) {
-        console.log(`Error Filtering Meals: ${e instanceof Error ? e.message : 'Unknown Error'}`)
     }
 }
 

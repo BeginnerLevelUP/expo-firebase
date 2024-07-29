@@ -3,23 +3,14 @@ import { View,ScrollView,Text } from 'react-native';
 import { Button,Card,} from 'react-native-paper';
 import React,{useEffect, useState} from "react"
 import { useLocalSearchParams } from 'expo-router';
-import { fetchMealById } from '@/utils/api/explore';
 import Meal from '@/utils/interface/meal';
 
 const SingleMeal = () => {
-     const { id } = useLocalSearchParams();
+     const { id,data } = useLocalSearchParams();
+     const item = data ? JSON.parse(data as string) : null;
     const [meal, setMeal] = useState<Meal>();
   useEffect(() => {
-    const fetchMeals = async () => {
-      try {
-        const meal = await fetchMealById(id as string);
-        setMeal(meal);
-      } catch (error) {
-        console.error('Failed to fetch meals:', error);
-      }
-    };
-
-    fetchMeals();
+    setMeal(item)
   }, []);
 
   return (

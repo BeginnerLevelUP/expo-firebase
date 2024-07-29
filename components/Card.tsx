@@ -41,7 +41,10 @@ const ExploreCard:FC<ExploreCardProps> = ({ searchedQuery='' }) => {
   return (
     <ScrollView>
       {filteredMeals.map((item, index) => (
-        <Link href={`/explore/${item.idMeal}`} key={index}>
+        <Link     href={{
+          pathname: '/explore/[id]',
+          params: { id:item.idMeal,data:JSON.stringify(item)},
+        }} key={index}>
           <View className='my-4' key={index}>
             <Card>
               <Card.Title title={item.strMeal} subtitle={item.strArea} />
