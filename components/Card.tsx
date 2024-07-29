@@ -7,7 +7,6 @@ import { fetchAllMeals } from '@/utils/api/explore';
 import Meal from '@/utils/interface/meal';
 
 const ExploreCard = () => {
-    const cards = [1, 2, 3]; //placeholder
     const [allMeals, setAllMeals] = useState<Meal[]>([]);
   useEffect(() => {
     const fetchMeals = async () => {
@@ -25,7 +24,7 @@ const ExploreCard = () => {
   return (
           <ScrollView>
               {allMeals.map((item, index) => (
-              <Link href="/explore/1" key={index}>
+              <Link href={`/explore/${item.idMeal}`} key={index}>
                   <View className='my-4' key={index}>
                       <Card>
                         <Card.Title title={item.strMeal} subtitle={item.strArea} />

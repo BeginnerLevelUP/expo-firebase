@@ -62,6 +62,23 @@ export const fetchAllMeals = async () => {
     }
 }
 
+// Fetch Meal From Id
+export const fetchMealById = async (id:string) => {
+    const allMealUrl = `${baseUrl}lookup.php?i=${id}`
+    try {
+        const request=await fetch(allMealUrl,{
+            method:"GET",
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        const response=await request.json()
+        return response?.meals[0]
+    } catch (e) {
+        console.log(`Error Fetching  Meal: ${e instanceof Error ? e.message : 'Unknown Error'}`)
+    }
+}
+
 // Filter Meals
 export const filterMeals = async () => {
     try {
