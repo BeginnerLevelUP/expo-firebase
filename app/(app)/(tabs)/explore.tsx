@@ -10,6 +10,7 @@ import { fetchAllMeals } from '@/utils/api/explore';
 export default function TabTwoScreen() {
   const [visible, setVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [search,setSearch]=useState(false)
   const openMenu = () => setVisible(true);
   const closeMenu = () => setVisible(false);
   return (
@@ -21,6 +22,7 @@ export default function TabTwoScreen() {
         placeholder="Search"
         onChangeText={setSearchQuery}
         value={searchQuery}
+        onSubmitEditing={()=>{setSearch(true)}}
             />
           <View className='flex flex-row justify-center items-center mt-4'>
             <Menu
@@ -40,7 +42,14 @@ export default function TabTwoScreen() {
 
           </View>
           {/* Body */}
+          {
+            search?(
+          <ExploreCard searchedQuery={searchQuery}></ExploreCard>
+            ):(
           <ExploreCard></ExploreCard>
+            )
+          }
+
 
       </SafeAreaView> 
 
