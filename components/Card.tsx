@@ -1,17 +1,34 @@
 
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { View,Text,ScrollView,SafeAreaView } from 'react-native';
-import { Button, Menu, Divider, Searchbar,Avatar, Card,} from 'react-native-paper';
-import React,{useState} from "react"
+import { View,ScrollView, } from 'react-native';
+import { Button,Card,} from 'react-native-paper';
+import React,{useEffect, useState} from "react"
+
+import { fetchAllMeals } from '@/utils/api/explore';
+import Meal from '@/utils/interface/meal';
+
 const ExploreCard = () => {
     const cards = [1, 2, 3]; //placeholder
+    const [allMeals, setAllMeals] = useState<Meal[]>([]);
+  useEffect(() => {
+    const fetchMeals = async () => {
+      try {
+        const meals = await fetchAllMeals();
+        setAllMeals(meals);
+      } catch (error) {
+        console.error('Failed to fetch meals:', error);
+      }
+    };
+
+    fetchMeals();
+  }, []);
+
   return (
           <ScrollView>
-              {cards.map((item, index) => (
+              {allMeals.map((item, index) => (
                   <View className='my-4' key={index}>
                       <Card>
-                        <Card.Title title="Item" subtitle="Item Subtitle" />
-                        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+                        <Card.Title title={item.strMeal} subtitle={item.strArea} />
+                        <Card.Cover source={{ uri: `${item.strMealThumb}` }} />
                         <Card.Actions>
                           <Button>Add To Plan</Button>
                           <Button>Save To Favorites</Button>

@@ -1,5 +1,5 @@
 import { Slot } from 'expo-router';
-import { SessionProvider } from "../auth/auth";
+import { SessionProvider } from "../utils/auth/auth";
 import { PaperProvider } from 'react-native-paper';
 import "../global.css"
 export default function Root() {

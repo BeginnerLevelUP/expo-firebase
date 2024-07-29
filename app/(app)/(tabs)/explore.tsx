@@ -4,6 +4,9 @@ import { Button, Menu, Divider, Searchbar,Avatar, Card,} from 'react-native-pape
 import React,{useState} from "react"
 import { AntDesign } from '@expo/vector-icons';
 import ExploreCard from '@/components/Card';
+
+import { fetchAllMeals } from '@/utils/api/explore';
+
 export default function TabTwoScreen() {
   const [visible, setVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');

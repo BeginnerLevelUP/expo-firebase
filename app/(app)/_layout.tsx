@@ -1,6 +1,6 @@
 import { Text } from 'react-native';
 import { Redirect, Stack } from 'expo-router';
-import { useSession } from "../../auth/auth";
+import { useSession } from "../../utils/auth/auth";
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';

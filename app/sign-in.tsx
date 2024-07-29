@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import { Text, View,TextInput,Button,StyleSheet,Alert } from 'react-native';
 import { useState } from 'react';
-import { useSession } from '../auth/auth';
+import { useSession } from '../utils/auth/auth';
 
 // "https://www.youtube.com/watch?v=mZlKwRV4MC8&t=582s&ab_channel=Dan%27sReactNativeLab"
 import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth"

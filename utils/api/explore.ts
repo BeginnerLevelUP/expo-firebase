@@ -1,36 +1,73 @@
-const baseUrl = `www.themealdb.com/api/json/v1/1/`;
+const baseUrl = `https://www.themealdb.com/api/json/v1/1/`;
 
 // Search Meal
-const fetchMealBySearch = () => {
+export const fetchMealBySearch = async () => {
+    try {
 
+    } catch (e) {
+        console.log(`Error Searching for Meal: ${e instanceof Error ? e.message : 'Unknown Error'}`)
+    }
 }
 
 // Add Meal
-const addMealToFavorites = () => {
-
+export const addMealToFavorites = async () => {
+    try {
+        // Code to add meal to favorites goes here
+    } catch (e) {
+        console.log(`Error Adding Meal to Favorites: ${e instanceof Error ? e.message : 'Unknown Error'}`)
+    }
 }
 
 // Remove Meal
-const removeMealFromFavorites = () => {
-
+export const removeMealFromFavorites = async () => {
+    try {
+        // Code to remove meal from favorites goes here
+    } catch (e) {
+        console.log(`Error Removing Meal from Favorites: ${e instanceof Error ? e.message : 'Unknown Error'}`)
+    }
 }
 
 // Add Meal To Plan
-const addMealToPlan = () => {
-
+export const addMealToPlan = async () => {
+    try {
+        // Code to add meal to plan goes here
+    } catch (e) {
+        console.log(`Error Adding Meal to Plan: ${e instanceof Error ? e.message : 'Unknown Error'}`)
+    }
 }
 
 // Remove Meal From Plan
-const removeMealFromPlan = () => {
-
+export const removeMealFromPlan = async () => {
+    try {
+        // Code to remove meal from plan goes here
+    } catch (e) {
+        console.log(`Error Removing Meal from Plan: ${e instanceof Error ? e.message : 'Unknown Error'}`)
+    }
 }
 
 // Fetch All Meals
-const fetchAllMeals = () => {
-
+export const fetchAllMeals = async () => {
+    const allMealUrl = `${baseUrl}search.php?s=`
+    try {
+        const request=await fetch(allMealUrl,{
+            method:"GET",
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        const response=await request.json()
+        return response?.meals
+    } catch (e) {
+        console.log(`Error Fetching All Meals: ${e instanceof Error ? e.message : 'Unknown Error'}`)
+    }
 }
 
 // Filter Meals
-const filterMeals = () => {
-
+export const filterMeals = async () => {
+    try {
+        // Code to filter meals goes here
+    } catch (e) {
+        console.log(`Error Filtering Meals: ${e instanceof Error ? e.message : 'Unknown Error'}`)
+    }
 }
+

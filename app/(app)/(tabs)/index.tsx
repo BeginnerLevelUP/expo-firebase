@@ -1,4 +1,4 @@
-import { useSession } from '../../../auth/auth';
+import { useSession } from '../../../utils/auth/auth';
 import { Text, View,ScrollView } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import auth from "@react-native-firebase/auth"
