@@ -1,10 +1,10 @@
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView,Text } from 'react-native';
 import { Button, Card } from 'react-native-paper';
 import React, { useEffect, useState,FC} from "react";
 import { Link } from 'expo-router';
 import { fetchAllMeals } from '@/utils/api/explore';
 import Meal from '@/utils/interface/meal';
-
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 interface ExploreCardProps {
   searchedQuery?: string; 
 }
@@ -39,25 +39,36 @@ const ExploreCard:FC<ExploreCardProps> = ({ searchedQuery='' }) => {
   );
 
   return (
-    <ScrollView>
-      {filteredMeals.map((item, index) => (
-        <Link    href={{
+<ScrollView>
+  {filteredMeals.length > 0 ? (
+    filteredMeals.map((item, index) => (
+      <Link
+        href={{
           pathname: '/explore/[id]',
-          params: { id:item.idMeal,data:JSON.stringify(item)},
-        }} key={index}>
-          <View className='my-4' key={index}>
-            <Card>
-              <Card.Title title={item.strMeal} subtitle={item.strArea} />
-              <Card.Cover source={{ uri: `${item.strMealThumb}` }} />
-              <Card.Actions>
-                <Button>Add To Plan</Button>
-                <Button>Save To Favorites</Button>
-              </Card.Actions>
-            </Card>
-          </View>
-        </Link>
-      ))}
-    </ScrollView>
+          params: { id: item.idMeal, data: JSON.stringify(item) },
+        }}
+        key={index}
+      >
+        <View className='my-4' key={index}>
+          <Card>
+            <Card.Title title={item.strMeal} subtitle={item.strArea} />
+            <Card.Cover source={{ uri: `${item.strMealThumb}` }} />
+            <Card.Actions>
+              <Button>Add To Plan</Button>
+              <Button>Save To Favorites</Button>
+            </Card.Actions>
+          </Card>
+        </View>
+      </Link>
+    ))
+  ) : (
+    <View className='flex justify-center items-center my-10'>
+    <Text className='font-bold text-4xl'>No results found</Text>   
+    <FontAwesome5 name="sad-cry" size={24} color="black" /> 
+    </View>
+
+  )}
+</ScrollView>
   );
 };
 

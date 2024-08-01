@@ -58,7 +58,7 @@ export default function TabTwoScreen() {
             }
           >
             {categories.map((category) => (
-              <Menu.Item key={category.strCategory} onPress={() => {}} title={category.strCategory} />
+              <Menu.Item key={category.strCategory} onPress={() => {setSearchQuery(category.strCategory); setSearch(true)}} title={category.strCategory} />
             ))}
           </Menu>
 
@@ -74,7 +74,7 @@ export default function TabTwoScreen() {
             }
           >
             {areas.map((area) => (
-              <Menu.Item key={area.strArea} onPress={() => {}} title={area.strArea} />
+              <Menu.Item key={area.strArea} onPress={() => {setSearchQuery(area.strArea); setSearch(true)}} title={area.strArea} />
             ))}
           </Menu>
 
@@ -90,7 +90,7 @@ export default function TabTwoScreen() {
             }
           >
             {ingredients.map((ingredient) => (
-              <Menu.Item key={ingredient.strIngredient} onPress={() => {}} title={ingredient.strIngredient} />
+              <Menu.Item key={ingredient.strIngredient} onPress={() => {setSearchQuery(ingredient.strIngredient); setSearch(true)}}title={ingredient.strIngredient} />
             ))}
           </Menu>
 
