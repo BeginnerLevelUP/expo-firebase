@@ -41,7 +41,7 @@ const ExploreCard:FC<ExploreCardProps> = ({ searchedQuery='' }) => {
   return (
     <ScrollView>
       {filteredMeals.map((item, index) => (
-        <Link     href={{
+        <Link    href={{
           pathname: '/explore/[id]',
           params: { id:item.idMeal,data:JSON.stringify(item)},
         }} key={index}>

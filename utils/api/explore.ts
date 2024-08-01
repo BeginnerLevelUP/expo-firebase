@@ -54,3 +54,52 @@ export const fetchAllMeals = async () => {
     }
 }
 
+// Get Catergories
+export const getCategories = async () => {
+    const allMealUrl = `${baseUrl}list.php?c=list`;
+    try {
+        const request = await fetch(allMealUrl, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const response = await request.json();
+        return response.meals;
+    } catch (e) {
+        console.log(`Error Getting All Categories: ${e instanceof Error ? e.message : 'Unknown Error'}`);
+    }
+}
+//Get Areas
+export const getAreas = async () => {
+    const allMealUrl = `${baseUrl}list.php?a=list`;
+    try {
+        const request = await fetch(allMealUrl, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const response = await request.json();
+
+        return response.meals;
+    } catch (e) {
+        console.log(`Error Getting All Categories: ${e instanceof Error ? e.message : 'Unknown Error'}`);
+    }
+}
+//Get Ingredients
+export const getIngredients = async () => {
+    const allMealUrl = `${baseUrl}list.php?i=list`;
+    try {
+        const request = await fetch(allMealUrl, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const response = await request.json();
+        return response.meals;
+    } catch (e) {
+        console.log(`Error Getting All Categories: ${e instanceof Error ? e.message : 'Unknown Error'}`);
+    }
+}
