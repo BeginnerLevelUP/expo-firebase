@@ -14,7 +14,8 @@ export default function SignIn() {
 
   const createAccount=async(response:FirebaseAuthTypes.UserCredential)=>{
     db().ref(`/users/${response.user.uid}`).set({ email });
-    db().ref(`/users/${response.user.uid}/calories`).set({ totalCalories: 0 });
+    db().ref(`/users/${response.user.uid}/calories`).set({ totalCalories:0,calendar:[] });
+        db().ref(`/users/${response.user.uid}/saved`).set({ meals:[],workouts:[] });
   }
   const registerAndGoToMainFlow=async()=>{
     if(email&&password){
