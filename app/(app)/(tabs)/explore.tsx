@@ -57,8 +57,8 @@ export default function TabTwoScreen() {
               </Button>
             }
           >
-            {categories.map((category:Meal) => (
-              <Menu.Item key={category.strCategory} onPress={() => {setSearchQuery(category.strCategory); setSearch(true)}} title={category.strCategory} />
+            {categories.map((category:Meal,index) => (
+              <Menu.Item key={index} onPress={() => {setSearchQuery(category.strCategory); setSearch(true)}} title={category.strCategory} />
             ))}
           </Menu>
 
@@ -73,8 +73,8 @@ export default function TabTwoScreen() {
               </Button>
             }
           >
-            {areas.map((area:Meal) => (
-              <Menu.Item key={area.strArea} onPress={() => {setSearchQuery(area.strArea); setSearch(true)}} title={area.strArea} />
+            {areas.map((area:Meal,index) => (
+              <Menu.Item key={index} onPress={() => {setSearchQuery(area.strArea); setSearch(true)}} title={area.strArea} />
             ))}
           </Menu>
 
@@ -89,8 +89,8 @@ export default function TabTwoScreen() {
               </Button>
             }
           >
-            {ingredients.map((ingredient:Meal) => (
-              <Menu.Item key={ingredient.strIngredient} onPress={() => {setSearchQuery(ingredient.strIngredient); setSearch(true)}}title={ingredient.strIngredient} />
+            {ingredients.map((ingredient:Meal,index) => (
+              <Menu.Item key={index} onPress={() => {setSearchQuery(ingredient.strIngredient); setSearch(true)}}title={ingredient.strIngredient} />
             ))}
           </Menu>
 

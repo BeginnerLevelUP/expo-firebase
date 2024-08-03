@@ -166,7 +166,7 @@ export const getIngredients = async () => {
             }
         });
         const response = await request.json();
-        return response.meals;
+        return response.meals.map((ingredient:any) => ingredient.strIngredient);
     } catch (e) {
         Alert.alert(`Error Getting All Categories: ${e instanceof Error ? e.message : 'Unknown Error'}`);
     }
