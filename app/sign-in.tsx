@@ -13,9 +13,14 @@ export default function SignIn() {
   const [password,setPassword]=useState<string | undefined>()
 
   const createAccount=async(response:FirebaseAuthTypes.UserCredential)=>{
-    db().ref(`/users/${response.user.uid}`).set({ email });
-    db().ref(`/users/${response.user.uid}/calories`).set({ totalCalories:0,calendar:[] });
-        db().ref(`/users/${response.user.uid}/saved`).set({ meals:[],workouts:[] });
+    // create interfaces for the layout so its structed
+   await db().ref(`/users/${response.user.uid}`).set({ email });
+   await db().ref(`/users/${response.user.uid}/calories`).set({ totalCalories:0,
+      // calendar:[]
+     });
+    // db().ref(`/users/${response.user.uid}/saved`).set({ meals:[],workouts:[] });
+    // db().ref(`/users/${response.user.uid}/saved`).set({ meals:[],workouts:[] });
+    
   }
   const registerAndGoToMainFlow=async()=>{
     if(email&&password){

@@ -8,6 +8,7 @@ export default interface Meal {
   strMealThumb: string;
   strTags: string;
   strYoutube: string;
+  strIngredient: string;
   strIngredient1: string;
   strIngredient2: string;
   strIngredient3: string;

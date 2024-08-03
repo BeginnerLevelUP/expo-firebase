@@ -24,7 +24,7 @@ const SingleMeal = () => {
                           <Text>{meal.strMeal}</Text>
                           <Text>{meal.strArea}</Text>
                           <Button>Add To Plan</Button>
-                          <Button>Save To Favorites</Button>
+                          <Button>Save For Later</Button>
                           <Image
                             className='w-1/2 h-full'
                             source={{ uri: meal.strMealThumb }}

@@ -5,7 +5,7 @@ import React,{useState,useEffect} from "react"
 import { AntDesign,FontAwesome } from '@expo/vector-icons';
 import { getCategories,getAreas,getIngredients } from '@/utils/api/explore';
 import ExploreCard from '@/components/Card';
-
+import Meal from '@/utils/interface/meal';
 export default function TabTwoScreen() {
   const [visibleArea, setAreaVisible] = useState(false);
   const [visibleCatergory, setCatergoryVisible] = useState(false);
@@ -57,7 +57,7 @@ export default function TabTwoScreen() {
               </Button>
             }
           >
-            {categories.map((category) => (
+            {categories.map((category:Meal) => (
               <Menu.Item key={category.strCategory} onPress={() => {setSearchQuery(category.strCategory); setSearch(true)}} title={category.strCategory} />
             ))}
           </Menu>
@@ -73,7 +73,7 @@ export default function TabTwoScreen() {
               </Button>
             }
           >
-            {areas.map((area) => (
+            {areas.map((area:Meal) => (
               <Menu.Item key={area.strArea} onPress={() => {setSearchQuery(area.strArea); setSearch(true)}} title={area.strArea} />
             ))}
           </Menu>
@@ -89,7 +89,7 @@ export default function TabTwoScreen() {
               </Button>
             }
           >
-            {ingredients.map((ingredient) => (
+            {ingredients.map((ingredient:Meal) => (
               <Menu.Item key={ingredient.strIngredient} onPress={() => {setSearchQuery(ingredient.strIngredient); setSearch(true)}}title={ingredient.strIngredient} />
             ))}
           </Menu>

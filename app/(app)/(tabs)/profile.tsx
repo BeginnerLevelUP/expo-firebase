@@ -14,7 +14,6 @@ export default function ProfilePage(){
     const { signOut,session} = useSession();
     const user=JSON.parse(session)
     const currentUser=auth().currentUser
-    
     const [username, setUsername] = useState("");
     // const [email, setemail] = useState("");
     
