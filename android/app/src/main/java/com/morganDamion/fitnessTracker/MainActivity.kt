@@ -1,4 +1,4 @@
-package com.fitnesstracker
+package com.morganDamion.fitnessTracker
 
 import android.os.Build
 import android.os.Bundle
