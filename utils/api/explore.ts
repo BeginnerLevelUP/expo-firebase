@@ -171,3 +171,14 @@ export const getIngredients = async () => {
         Alert.alert(`Error Getting All Categories: ${e instanceof Error ? e.message : 'Unknown Error'}`);
     }
 }
+//filter
+ // Function to filter meals based on searchedQuery
+export const filterMeals = (meals: Meal[], query: string): Meal[] => {
+  const lowerCaseQuery = query.toLowerCase();
+
+  return meals.filter(meal =>
+    Object.values(meal).some(value =>
+      value && value.toString().toLowerCase().includes(lowerCaseQuery)
+    )
+  );
+};
