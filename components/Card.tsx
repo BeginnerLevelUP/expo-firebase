@@ -2,23 +2,23 @@ import { View, ScrollView, Text } from 'react-native';
 import { Button, Card, ActivityIndicator } from 'react-native-paper';
 import React, { useEffect, useState, FC } from 'react';
 import { Link } from 'expo-router';
-import { fetchAllMeals, addMealToSaved, addMealToPlan } from '@/utils/api/explore';
 import Meal from '@/utils/interface/meal';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 interface ExploreCardProps {
   searchedQuery?: string;
+  fetch: () => Promise<any>;
 }
 
-const ExploreCard: FC<ExploreCardProps> = ({ searchedQuery = '' }) => {
-  const [allMeals, setAllMeals] = useState<Meal[]>([]);
+const ExploreCard: FC<ExploreCardProps> = ({fetch, searchedQuery = '' }) => {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState<boolean>(true); // Start with loading as true
 
   useEffect(() => {
-    const fetchMeals = async () => {
+    const fetchData = async () => {
       try {
-        const meals = await fetchAllMeals();
-        setAllMeals(meals);
+        const fetchedData = await fetch();
+        setData(fetchedData);
       } catch (error) {
         console.error('Failed to fetch meals:', error);
       } finally {
@@ -26,7 +26,7 @@ const ExploreCard: FC<ExploreCardProps> = ({ searchedQuery = '' }) => {
       }
     };
 
-    fetchMeals();
+    fetchData();
   }, []);
 
   // Function to check if any property includes the searchedQuery
@@ -38,7 +38,7 @@ const ExploreCard: FC<ExploreCardProps> = ({ searchedQuery = '' }) => {
   };
 
   // Filter meals based on searchedQuery
-  const filteredMeals = allMeals.filter(meal =>
+  const filteredMeals = data.filter(meal =>
     matchesQuery(meal, searchedQuery)
   );
 

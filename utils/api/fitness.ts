@@ -1,5 +1,4 @@
 const baseUrl = `https://exercisedb.p.rapidapi.com/`;
-const queryParam=`?limit=0`
 import auth from "@react-native-firebase/auth"
 import db from "@react-native-firebase/database"
 import { Alert } from "react-native";
@@ -29,42 +28,24 @@ const currentUser=auth().currentUser
 
 // // Fetch All Exercises
 export const fetchAllExercises = async () => {
-const url = `${baseUrl}exercises${queryParam}`;
+  const url = `${baseUrl}exercises?limit=10&offset=0`;
 const options = {
 	method: 'GET',
 	headers: {
-		'x-rapidapi-key':(process.env['EXPO_PUBLIC_X_Rapidapi_Key']) as string,
+		'x-rapidapi-key':"abf298e8cemsha3c126754e2939dp13f108jsnff2904aa1f37",
 		'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
 	}
 };
 
 try {
 	const response = await fetch(url, options);
-	const result = await response.json();
-	return result
+	const result = await response.text();
+	console.log(result);
 } catch (error) {
 	console.error(error);
 }
 };
 
-export const fetchTargetList = async () => {
-const url = `${baseUrl}exercises/targetList${queryParam}`;
-const options = {
-	method: 'GET',
-	headers: {
-		'x-rapidapi-key':(process.env['EXPO_PUBLIC_X_Rapidapi_Key']) as string,
-		'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
-	}
-};
-
-try {
-	const response = await fetch(url, options);
-	const result = await response.json();
-	return result
-} catch (error) {
-	console.error(error);
-}
-};
 // // Filter
 // export const filterExercises = async () => {
 //   // Implementation goes here
