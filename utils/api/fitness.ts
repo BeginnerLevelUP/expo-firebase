@@ -3,29 +3,29 @@ const queryParam=`?limit=0`
 import auth from "@react-native-firebase/auth"
 import db from "@react-native-firebase/database"
 import { Alert } from "react-native";
-import Meal from "../interface/meal";
+import Exercise from "../interface/exercise";
 const currentUser=auth().currentUser
 
 
-// // Add Exercise
-// export const addExercise = async () => {
-//   // Implementation goes here
-// };
+// Add Exercise
+export const addExercise = async (item:Exercise) => {
+  // Implementation goes here
+};
 
-// // Remove Exercise
-// export const removeExercise = async () => {
-//   // Implementation goes here
-// };
+// Remove Exercise
+export const removeExercise = async (item:Exercise)  => {
+  // Implementation goes here
+};
 
-// // Add Exercise To Plan
-// export const addExerciseToPlan = async () => {
-//   // Implementation goes here
-// };
+// Add Exercise To Plan
+export const addExerciseToPlan = async (item:Exercise)  => {
+  // Implementation goes here
+};
 
-// // Remove Exercise From Plan
-// export const removeExerciseFromPlan = async () => {
-//   // Implementation goes here
-// };
+// Remove Exercise From Plan
+export const removeExerciseFromPlan = async (item:Exercise)  => {
+  // Implementation goes here
+};
 
 // // Fetch All Exercises
 export const fetchAllExercises = async () => {
