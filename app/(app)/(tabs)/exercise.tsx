@@ -7,11 +7,11 @@ import Target from "@/utils/interface/target";
 import ExerciseCard from "@/components/ExerciseCard";
 export default function ExercisePage() {
     const [targetList,setTargetList]=useState<Target[]>([])
-    const [allExercies,setExercies]=useState<Exercise[]>([])
+    // const [activeTarget,setActive]=useState<Boolean>(false)
+    const [searchQuery,setSearch]=useState<string>('')
     useEffect(() => {
         const initalize = async () => {
             setTargetList(targets);
-            setExercies(await fetchAllExercises())
         };
         initalize();
     }, []);
@@ -19,12 +19,12 @@ export default function ExercisePage() {
         <>
         <SafeAreaView className=" flex-1 justify-center items-center w-screen h-screen">
 
-            <ScrollView className=" w-full h-1/3" horizontal>
+            <ScrollView className=" w-full h-40" horizontal>
             {
                 targetList.length>0?
                 targetList.map((target,index)=>(
             <View className="mx-2 w-fit" key={index}>
-            <Card>
+            <Card onPress={()=>{setSearch(target.name)}}>
                 <Card.Title  title={target.name.toLocaleUpperCase()} />
                 <Card.Cover source={{ uri: target.gifUrl }} />
             </Card>
@@ -37,7 +37,11 @@ export default function ExercisePage() {
             }
             </ScrollView>
             <View className="w-full h-2/3">
-                <ExerciseCard></ExerciseCard>
+            {searchQuery ? (
+        <ExerciseCard searchedQuery={searchQuery}></ExerciseCard>
+      ) : (
+        <ExerciseCard></ExerciseCard>
+      )}
             </View>
 
 
