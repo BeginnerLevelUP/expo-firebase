@@ -2,7 +2,7 @@ import { View, ScrollView, Text } from 'react-native';
 import { Button, Card, ActivityIndicator } from 'react-native-paper';
 import React, { useEffect, useState, FC } from 'react';
 import { Link } from 'expo-router';
-import { fetchAllExercises, addExercise, removeExercise, addExerciseToPlan, removeExerciseFromPlan } from '@/utils/api/fitness';
+import { fetchAllExercisesFromTarget, addExercise, addExerciseToPlan,fetchAllExercises } from '@/utils/api/fitness';
 import Exercise from '@/utils/interface/exercise';
 import { Entypo, FontAwesome5 } from '@expo/vector-icons';
 
@@ -16,12 +16,18 @@ const ExerciseCard: FC<ExerciseCardProps> = ({ searchedQuery = '' }) => {
   const [limit, setLimit] = useState<string>('10');
   const [offset, setOffset] = useState<string>('0');
 
+
   useEffect(() => {
     const fetchExercises = async () => {
       try {
         setLoading(true);
-        const exercises = await fetchAllExercises(limit, offset);
-        setAllExercises(exercises);
+        if (searchedQuery) {
+          const exercises = await fetchAllExercisesFromTarget(searchedQuery, limit, offset);
+          setAllExercises(exercises);
+        } else {
+          const exercises = await fetchAllExercises();
+          setAllExercises(exercises);
+        }
       } catch (error) {
         console.error('Failed to fetch exercises:', error);
       } finally {
@@ -30,20 +36,7 @@ const ExerciseCard: FC<ExerciseCardProps> = ({ searchedQuery = '' }) => {
     };
 
     fetchExercises();
-  }, [limit, offset]);
-
-  // Function to check if any property includes the searchedQuery
-  const matchesQuery = (exercise: Exercise, query: string) => {
-    const lowerCaseQuery = query.toLowerCase();
-    return Object.values(exercise).some(value =>
-      value && value.toString().toLowerCase().includes(lowerCaseQuery)
-    );
-  };
-
-  // Filter exercises based on searchedQuery
-  const filteredExercises = allExercises.filter(exercise =>
-    matchesQuery(exercise, searchedQuery)
-  );
+  }, [searchedQuery, limit, offset]);
 
   return (
     <View className='flex-row justify-center items-center px-4 '>
@@ -61,8 +54,8 @@ const ExerciseCard: FC<ExerciseCardProps> = ({ searchedQuery = '' }) => {
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', height: '100%' }}>
             <ActivityIndicator size="large" color="blue" />
           </View>
-        ) : filteredExercises.length > 0 ? (
-          filteredExercises.map((item, index) => (
+        ) : allExercises.length > 0 ? (
+          allExercises.map((item, index) => (
             <Link
               href={{
                 pathname: '/exercise/[id]',

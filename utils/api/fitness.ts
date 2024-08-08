@@ -148,3 +148,23 @@ try {
 	console.error(error);
 }
 };
+
+// // Fetch All Exercises
+export const fetchAllExercisesFromTarget = async (target:string,limit:string='10',offset:string='0') => {
+const url = `${baseUrl}exercises/target/${target}?limit=${limit}&offset=${offset}`;
+const options = {
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key':(process.env['EXPO_PUBLIC_X_Rapidapi_Key']) as string,
+		'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.json();
+	return result
+} catch (error) {
+	console.error(error);
+}
+};

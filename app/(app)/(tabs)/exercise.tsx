@@ -7,7 +7,7 @@ import Target from "@/utils/interface/target";
 import ExerciseCard from "@/components/ExerciseCard";
 export default function ExercisePage() {
     const [targetList,setTargetList]=useState<Target[]>([])
-    // const [activeTarget,setActive]=useState<Boolean>(false)
+    const [activeTarget, setActiveTarget] = useState<number | null>(null);
     const [searchQuery,setSearch]=useState<string>('')
     useEffect(() => {
         const initalize = async () => {
@@ -23,8 +23,16 @@ export default function ExercisePage() {
             {
                 targetList.length>0?
                 targetList.map((target,index)=>(
-            <View className="mx-2 w-fit" key={index}>
-            <Card onPress={()=>{setSearch(target.name)}}>
+            <View className={`mx-2 w-fit ${activeTarget === index ? "border-purple-950 border rounded-lg" : "border-none"}`} key={index}>
+            <Card onPress={()=>{
+                if (activeTarget === index) {
+                        setSearch('');
+                        setActiveTarget(null);
+                    } else {
+                        setSearch(target.name);
+                        setActiveTarget(index);
+                    }
+                }}>
                 <Card.Title  title={target.name.toLocaleUpperCase()} />
                 <Card.Cover source={{ uri: target.gifUrl }} />
             </Card>
