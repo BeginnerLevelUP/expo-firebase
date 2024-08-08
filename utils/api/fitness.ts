@@ -1,11 +1,9 @@
 const baseUrl = `https://exercisedb.p.rapidapi.com/`;
-const queryParam=`?limit=0`
 import auth from "@react-native-firebase/auth"
 import db from "@react-native-firebase/database"
 import { Alert } from "react-native";
 import Exercise from "../interface/exercise";
 const currentUser=auth().currentUser
-
 
 // Add Exercise
 export const addExercise = async (exercise:Exercise) => {
@@ -109,10 +107,29 @@ export const removeExerciseFromPlan = async (exercise:Exercise)  => {
     Alert.alert(`Error Removing Exercise: ${e instanceof Error ? e.message : 'Unknown Error'}`);
   }
 };
+//Fetch Target Parts
+export const fetchTargetList = async () => {
+const url = `${baseUrl}exercises/targetList`;
+const options = {
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key':(process.env['EXPO_PUBLIC_X_Rapidapi_Key']) as string,
+		'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.json();
+	return result
+} catch (error) {
+	console.error(error);
+}
+};
 
 // // Fetch All Exercises
-export const fetchAllExercises = async () => {
-const url = `${baseUrl}exercises${queryParam}`;
+export const fetchAllExercises = async (limit:string='10',offset:string='0') => {
+const url = `${baseUrl}exercises?limit=${limit}&offset=${offset}`;
 const options = {
 	method: 'GET',
 	headers: {
@@ -129,26 +146,3 @@ try {
 	console.error(error);
 }
 };
-
-export const fetchTargetList = async () => {
-const url = `${baseUrl}exercises/targetList${queryParam}`;
-const options = {
-	method: 'GET',
-	headers: {
-		'x-rapidapi-key':(process.env['EXPO_PUBLIC_X_Rapidapi_Key']) as string,
-		'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
-	}
-};
-
-try {
-	const response = await fetch(url, options);
-	const result = await response.json();
-	return result
-} catch (error) {
-	console.error(error);
-}
-};
-// // Filter
-// export const filterExercises = async () => {
-//   // Implementation goes here
-// };

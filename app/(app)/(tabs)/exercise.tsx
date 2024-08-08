@@ -16,9 +16,9 @@ export default function ExercisePage() {
     }, []);
     return (
         <>
-        <SafeAreaView className="flex-1 justify-center items-center">
+        <SafeAreaView className=" flex-1 justify-center items-center w-screen h-screen">
 
-            <ScrollView className="w-screen px-4 " horizontal>
+            <ScrollView className=" w-full px-4 h-1/3" horizontal>
             {
                 targetList.length>0?
                 targetList.map((target,index)=>(
@@ -35,7 +35,11 @@ export default function ExercisePage() {
                 )
             }
             </ScrollView>
-            <ExerciseCard></ExerciseCard>
+            <View className="w-full h-2/3">
+                <ExerciseCard></ExerciseCard>
+            </View>
+
+
         </SafeAreaView>
 
         
