@@ -46,7 +46,7 @@ const ExerciseCard: FC<ExerciseCardProps> = ({ searchedQuery = '' }) => {
   );
 
   return (
-    <View className='flex-row justify-center items-center px-4'>
+    <View className='flex-row justify-center items-center px-4 '>
       <Entypo
         name="arrow-with-circle-left"
         size={24}

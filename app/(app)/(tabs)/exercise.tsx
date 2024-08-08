@@ -1,15 +1,16 @@
 import React, { useEffect,useState } from "react";
 import { View,ScrollView,FlatList,SafeAreaView} from "react-native";
 import { Avatar, Button, Card,Text } from 'react-native-paper';
-import { fetchAllExercises,fetchTargetList } from "@/utils/api/fitness";
+import { fetchAllExercises,targets } from "@/utils/api/fitness";
 import Exercise from "@/utils/interface/exercise";
+import Target from "@/utils/interface/target";
 import ExerciseCard from "@/components/ExerciseCard";
 export default function ExercisePage() {
-    const [targetList,setTargetList]=useState<string[]>([])
+    const [targetList,setTargetList]=useState<Target[]>([])
     const [allExercies,setExercies]=useState<Exercise[]>([])
     useEffect(() => {
         const initalize = async () => {
-            setTargetList(await fetchTargetList());
+            setTargetList(targets);
             setExercies(await fetchAllExercises())
         };
         initalize();
@@ -18,14 +19,14 @@ export default function ExercisePage() {
         <>
         <SafeAreaView className=" flex-1 justify-center items-center w-screen h-screen">
 
-            <ScrollView className=" w-full px-4 h-1/3" horizontal>
+            <ScrollView className=" w-full h-1/3" horizontal>
             {
                 targetList.length>0?
                 targetList.map((target,index)=>(
-            <View className="p-4 w-1/12" key={index}>
+            <View className="mx-2 w-fit" key={index}>
             <Card>
-                <Card.Title className="text-center" title={target.toLocaleUpperCase()} />
-                <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+                <Card.Title  title={target.name.toLocaleUpperCase()} />
+                <Card.Cover source={{ uri: target.gifUrl }} />
             </Card>
             </View>
 
