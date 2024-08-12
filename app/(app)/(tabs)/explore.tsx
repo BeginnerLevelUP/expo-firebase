@@ -15,7 +15,6 @@ export default function TabTwoScreen() {
   const [categories, setCategories] = useState([]);
   const [areas, setAreas] = useState([]);
   const [ingredients, setIngredients] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       const fetchedCategories = await getCategories();
