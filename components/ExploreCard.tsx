@@ -8,6 +8,7 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 interface ExploreCardProps {
   searchedQuery?: string;
+  data?:Meal[]
 }
 
 const ExploreCard: FC<ExploreCardProps> = ({ searchedQuery = '' }) => {

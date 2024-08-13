@@ -25,7 +25,7 @@ const ExerciseCard: FC<ExerciseCardProps> = ({ searchedQuery = '' }) => {
           const exercises = await fetchAllExercisesFromTarget(searchedQuery, limit, offset);
           setAllExercises(exercises);
         } else {
-          const exercises = await fetchAllExercises();
+          const exercises = await fetchAllExercises(limit, offset);
           setAllExercises(exercises);
         }
       } catch (error) {

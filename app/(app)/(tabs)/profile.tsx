@@ -14,16 +14,21 @@ export default function ProfilePage(){
     const { signOut,session} = useSession();
     const user=JSON.parse(session)
     const currentUser=auth().currentUser
-    const [username, setUsername] = useState("");
+    const [username, setUsername] = useState<string>(currentUser?.displayName||'');
+    const [weight,setWeight]=useState<string>("0")
+    const [height,setHeight]=useState<string>("0")
     // const [email, setemail] = useState("");
     
     const updateProfile=async(displayName:string,email:string)=>{
         if(currentUser){
             try{
+                if (!username||!weight||!height){
+                 Alert.alert('Cannot Be Null')                   
+                }else{
                 await currentUser.updateProfile({displayName,})
                 // await currentUser.updateEmail(email)
                 await currentUser.reload()
-                Alert.alert('Changed Made Successfully')
+                Alert.alert('Changed Made Successfully')}
             }catch(e){
             e instanceof Error? Alert.alert(`${e}`) : Alert.alert('unknown error')
         }
@@ -65,6 +70,22 @@ export default function ProfilePage(){
                     disabled
                     />
                 </View>
+                
+                <View className='my-4'>
+                    <TextInput
+                    label={"Height"}
+                    value={currentUser?.displayName||'0'}
+                    disabled
+                    />
+                </View>
+
+                <View className='my-4'>
+                    <TextInput
+                    label={"Weight"}
+                    value={currentUser?.displayName||'0'}
+                    disabled
+                    />
+                </View>
 
                 <View className='my-4'>
                     <TextInput
@@ -92,7 +113,20 @@ export default function ProfilePage(){
                         onChangeText={text => setUsername(text)}
                         />
                     </View>
-
+                    <View className='my-4'>
+                        <TextInput
+                        label={"New Height"}
+                        value={height}
+                        onChangeText={text => setHeight(text)}
+                        />
+                    </View>
+                    <View className='my-4'>
+                        <TextInput
+                        label={" New Weight"}
+                        value={weight}
+                        onChangeText={text => setWeight(text)}
+                        />
+                    </View>
                     {/* <View className='my-4'>
                         <TextInput
                         label="New Email"

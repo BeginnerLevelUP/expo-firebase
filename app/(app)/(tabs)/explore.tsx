@@ -1,8 +1,8 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { View,Text,ScrollView,SafeAreaView } from 'react-native';
-import { Button, Menu, Divider, Searchbar,Avatar, Card,} from 'react-native-paper';
+import { View,Text,SafeAreaView } from 'react-native';
+import { Button, Menu, Searchbar,} from 'react-native-paper';
 import React,{useState,useEffect} from "react"
-import { AntDesign,FontAwesome } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 import { getCategories,getAreas,getIngredients } from '@/utils/api/explore';
 import ExploreCard from '@/components/ExploreCard';
 import Meal from '@/utils/interface/meal';
