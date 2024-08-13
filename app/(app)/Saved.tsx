@@ -47,19 +47,30 @@ useEffect(() => {
           <Chip icon={activeMeal?"food-drumstick":"food-drumstick-off"} onPress={() => {setMealActive(!activeMeal); setExerciseActive(!activeExercise)}}>Meal</Chip>
          <Chip  icon={activeExercise?"fire":"fire-off"} onPress={() => {setExerciseActive(!activeExercise);setMealActive(!activeMeal)}}>Exercise</Chip>
         </View>
-                <View className="my-2">
-          {
-            (!meals || !exercises) ? (
-              <Chip icon={"alert-circle"}>None Found Here Try Some Suggestions</Chip>
-            ) : null
-          }
-        </View>
          <View>
          {
           activeExercise?(
+            <>
+                <View className="my-2">
+          {
+            (!exercises) ? (
+              <Chip icon={"alert-circle"}>No Exercies Found,Here Try Some Suggestions</Chip>
+            ) : null
+          }
+        </View>
             <ExerciseCard data={exercises} name="Saved" remove={removeExercise} viceVersa={addExerciseToPlan} ></ExerciseCard>
+            </>
           ):(
+            <>
+            <View className="my-2">
+                      {
+                        (!meals ) ? (
+                          <Chip icon={"alert-circle"}>No Meal Found,Here Try Some Suggestions</Chip>
+                        ) : null
+                      }
+             </View>
          <ExploreCard data={meals} name="Saved" remove={removeMealFromSaved} viceVersa={addMealToPlan}></ExploreCard>
+         </>
           )
          }
          </View>
