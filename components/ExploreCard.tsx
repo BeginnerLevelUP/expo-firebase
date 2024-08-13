@@ -8,18 +8,27 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 interface ExploreCardProps {
   searchedQuery?: string;
-  data?:Meal[]
+  //used for plan/saved pages
+  data?:Meal[],
+  name?:string,
+  remove?:(item:Meal)=>void,
+  viceVersa?:(item:Meal)=>void
 }
 
-const ExploreCard: FC<ExploreCardProps> = ({ searchedQuery = '' }) => {
+const ExploreCard: FC<ExploreCardProps> = ({ searchedQuery = '',data,name,remove,viceVersa }) => {
   const [allMeals, setAllMeals] = useState<Meal[]>([]);
   const [loading, setLoading] = useState<boolean>(true); // Start with loading as true
 
   useEffect(() => {
     const fetchMeals = async () => {
       try {
+        if (data){
+          setAllMeals(data)
+        }else{
         const meals = await fetchAllMeals();
         setAllMeals(meals);
+        }
+
       } catch (error) {
         console.error('Failed to fetch meals:', error);
       } finally {
@@ -28,7 +37,7 @@ const ExploreCard: FC<ExploreCardProps> = ({ searchedQuery = '' }) => {
     };
 
     fetchMeals();
-  }, []);
+  }, [data]);
 
   // Function to check if any property includes the searchedQuery
   const matchesQuery = (meal: Meal, query: string) => {
@@ -63,8 +72,22 @@ const ExploreCard: FC<ExploreCardProps> = ({ searchedQuery = '' }) => {
                 <Card.Title title={item.strMeal} subtitle={item.strArea} />
                 <Card.Cover source={{ uri: `${item.strMealThumb}` }} />
                 <Card.Actions>
-                  <Button onPress={() => { addMealToPlan(item) }}>Add To Plan</Button>
-                  <Button onPress={() => { addMealToSaved(item) }}>Save For Later</Button>
+                  <Button onPress={() => { 
+                    if(viceVersa){ 
+                      viceVersa(item)
+                    }else{
+                    addMealToPlan(item)
+                    }
+
+                     }}>{name==="Plan"?"Move To Saved":"Add To Plan"}</Button>
+                  <Button onPress={() => {
+                    if(remove){
+                      remove(item)
+                    }else{
+                     addMealToSaved(item) 
+                    }
+
+                     }}>{name?`Remove From ${name==="Plan"?"Plan":"Saved"}`:"Save For Later"}</Button>
                 </Card.Actions>
               </Card>
             </View>

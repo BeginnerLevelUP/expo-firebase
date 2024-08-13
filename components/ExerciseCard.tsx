@@ -8,9 +8,13 @@ import { Entypo, FontAwesome5 } from '@expo/vector-icons';
 
 interface ExerciseCardProps {
   searchedQuery?: string;
+  data?:Exercise[],
+  name?:string,
+  remove?:(item:Exercise)=>void
+  viceVersa?:(item:Exercise)=>void
 }
 
-const ExerciseCard: FC<ExerciseCardProps> = ({ searchedQuery = '' }) => {
+const ExerciseCard: FC<ExerciseCardProps> = ({ searchedQuery = '',data,name,remove,viceVersa }) => {
   const [allExercises, setAllExercises] = useState<Exercise[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [limit, setLimit] = useState<string>('10');
@@ -24,7 +28,10 @@ const ExerciseCard: FC<ExerciseCardProps> = ({ searchedQuery = '' }) => {
         if (searchedQuery) {
           const exercises = await fetchAllExercisesFromTarget(searchedQuery, limit, offset);
           setAllExercises(exercises);
-        } else {
+        }else if(data){
+          setAllExercises(data)
+        }
+        else {
           const exercises = await fetchAllExercises(limit, offset);
           setAllExercises(exercises);
         }
@@ -63,13 +70,26 @@ const ExerciseCard: FC<ExerciseCardProps> = ({ searchedQuery = '' }) => {
               }}
               key={index}
             >
-              <View style={{ marginVertical: 10 }} key={index} className='px-4'>
+              <View style={{ marginVertical: 10 }} key={index} className='px-8'>
                 <Card>
                   <Card.Title title={item.name} subtitle={item.target} />
                   <Card.Cover source={{ uri: `${item.gifUrl}` }} />
                   <Card.Actions>
-                    <Button onPress={() => { addExerciseToPlan(item) }}>Add To Plan</Button>
-                    <Button onPress={() => { addExercise(item) }}>Save For Later</Button>
+                    <Button onPress={() => { 
+                    if(viceVersa){ 
+                      viceVersa(item)
+                    }else{
+                    addExerciseToPlan(item)
+                    }
+
+                      }}> {name==="Plan"?"Move To Saved":"Add To Plan"}</Button>
+                    <Button onPress={() => { 
+                    if(remove){ 
+                      remove(item)
+                    }else{
+                      addExercise(item)
+                    }
+                       }}>{name?`Remove From ${name==="Plan"?"Plan":"Saved"}`:"Save For Later"}</Button>
                   </Card.Actions>
                 </Card>
               </View>
