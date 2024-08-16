@@ -3,11 +3,44 @@ import { Text, View,ScrollView } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import auth from "@react-native-firebase/auth"
 import { Icon } from 'react-native-paper';
-import { fetchAllExercises } from '@/utils/api/fitness';
+import HomeCard from '@/components/HomeCard';
+import { useState,useEffect } from 'react';
+import Meal from '@/utils/interface/meal';
+import database from '@react-native-firebase/database';
+import Exercise from '@/utils/interface/exercise';
 export default function HomeScreen() {
-  const { signOut,session } = useSession();
+  const {session } = useSession();
   const user=JSON.parse(session)
   const currentUser=auth().currentUser
+  // const [activeMeal,setMealActive]=useState<Boolean>(true)
+  // const [activeExercise,setExerciseActive]=useState<Boolean>(false)
+  const[meals,setMeals]=useState<Meal[]>()
+  const[exercises,setExercises]=useState<Exercise[]>()
+  useEffect(() => {
+  const onValueChange = database()
+    .ref(`/users/${currentUser?.uid}`)
+    .on('value', snapshot => {
+      const data = snapshot.val();
+      if (data && data.plan) {
+        const mealPlan = data.plan.meals;
+        const exercisePlan = data.plan.exercises;
+        
+        // Process meals
+        if (mealPlan) {
+          const mealArray = Object.values(mealPlan) as Meal[];
+          setMeals(mealArray);
+        }
+        
+        // Process exercises
+        if (exercisePlan) {
+          const exerciseArray = Object.values(exercisePlan)  as Exercise[];
+          setExercises(exerciseArray);
+        }
+      }
+    });
+
+  return () => database().ref(`/users/${currentUser?.uid}`).off('value', onValueChange);
+}, [currentUser]);
   return (
     <ScrollView> 
     <View  className='flex-1 justify-center items-center h-screen w-screen'>
@@ -31,37 +64,11 @@ export default function HomeScreen() {
 
       </View>
 
-      {/* Nav */}
-      <View className='w-full  flex flex-row justify-between px-4 items-center mb-24 '>
-                    <Icon
-                        source="arrow-left-circle"
-                        size={35}
-                    /> 
-        <View className='bg-gray-600 h-32 w-3/4 flex items-center justify-between rounded-lg flex-row px-4'>
-          <Icon
-            source="bike-fast"
-            size={100}
-          />
-          
-          <View>
-            <Text className='mb-8'>Goal : 0/500 cals</Text>
-          <Icon
-            source="bookmark-plus-outline"
-            size={40}
-            color='green'
-          />
-          </View>
 
-        </View>
-                    <Icon
-                        source="arrow-right-circle"
-                        size={35}
-                    />  
-      </View>
 
       {/* Goal */}
       <View className='w-full h-[200px] flex flex-row justify-between px-4 items-center '>
-        
+        <HomeCard userPlannedExercies={exercises||[]}></HomeCard>
       </View>
 
     </View>
