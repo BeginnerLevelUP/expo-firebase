@@ -3,7 +3,8 @@ import { Text, View,ScrollView } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import auth from "@react-native-firebase/auth"
 import { Icon } from 'react-native-paper';
-import HomeCard from '@/components/HomeCard';
+import HomeCardExercise from '@/components/HomeCardExercise';
+import HomeCardMeal from '@/components/HomeCardMeal';
 import { useState,useEffect } from 'react';
 import Meal from '@/utils/interface/meal';
 import database from '@react-native-firebase/database';
@@ -67,10 +68,10 @@ export default function HomeScreen() {
 
 
       {/* Goal */}
-      <View className='w-full h-[200px] flex flex-row justify-between px-4 items-center '>
-        <HomeCard userPlannedExercies={exercises||[]}></HomeCard>
-      </View>
+      <HomeCardExercise userPlannedExercies={exercises||[]}></HomeCardExercise>
 
+      {/* Meal */}
+        <HomeCardMeal userPlannedMeals={meals||[]}></HomeCardMeal>
     </View>
     </ScrollView>
 

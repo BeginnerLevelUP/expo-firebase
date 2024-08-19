@@ -1,5 +1,5 @@
 
-import { View,ScrollView,Text,StyleSheet,Image} from 'react-native';
+import { View,ScrollView,Text,Image} from 'react-native';
 import React,{useEffect, useState} from "react"
 import { Button } from 'react-native-paper';
 import { useLocalSearchParams } from 'expo-router';
